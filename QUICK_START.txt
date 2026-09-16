@@ -1,0 +1,124 @@
+================================================================================
+VOLATILITY PULSE BOT - 5 MINUTE SETUP
+================================================================================
+
+WHAT: 24/7 WhatsApp trading signals for Deriv indices (R_10, R_25, R_50, R_75)
+WHERE: Replit (free, unlimited 24/7 runtime)
+STATUS: ✅ READY TO DEPLOY
+
+================================================================================
+FILES (11 total - all ready)
+================================================================================
+
+Config:          .env
+Data:            deriv_websocket.py, volatility_pulse_strategy.py
+Delivery:        whatsapp_sender.py, sr_manager.py
+Bot:             main.py
+Optional:        sr_terminal.py (web dashboard for S/R levels)
+Testing:         test_connection.py
+Setup:           requirements.txt, REPLIT_SETUP.md, README.md, ARCHITECTURE.md
+
+================================================================================
+DEPLOY IN 5 STEPS
+================================================================================
+
+1. GO TO: replit.com → Sign up → Create new Python Repl
+
+2. COPY-PASTE these 11 files into Replit editor:
+   - main.py
+   - deriv_websocket.py
+   - volatility_pulse_strategy.py
+   - whatsapp_sender.py
+   - sr_manager.py
+   - sr_terminal.py
+   - test_connection.py
+   - requirements.txt
+   - .env
+   - REPLIT_SETUP.md
+   - README.md
+
+3. INSTALL: pip install -r requirements.txt
+
+4. TEST: python3 test_connection.py
+   Expected: "✓ ALL TESTS PASSED"
+
+5. DEPLOY: Click "Deploy" button → Select "main.py" → Done
+   Bot runs 24/7 forever (free)
+
+================================================================================
+WHAT HAPPENS
+================================================================================
+
+✓ Bot starts scanning 5 seconds after deploy
+✓ Every 5 minutes: Fetches R_10, R_25, R_50, R_75 data
+✓ Scores each symbol (0-100% confluence)
+✓ If ≥75% → Signal fires to WhatsApp group
+✓ Logs saved to: signals_log.json
+✓ Watch live in Replit console
+
+FIRST SIGNAL:
+- Expected within 10-30 minutes of deploy
+- Check your WhatsApp group
+- Format: Direction | Entry | SL | TP | Confluence %
+
+================================================================================
+CREDENTIALS (Already Configured)
+================================================================================
+
+Deriv API Token:    pat_861384d5f88f0d95117a150ddc5a8258066431d20d7a8cb5e86485a76c46fec7
+Green API Instance: 710722734647
+Green API Token:    774963bf8bd74d20aa2133728423e294a413c14a4d364785bd
+WhatsApp Group:     120363413768704559@g.us
+
+(All in .env file - no manual entry needed)
+
+================================================================================
+OPTIONAL: S/R REVERSAL DETECTION
+================================================================================
+
+To add support/resistance levels that boost signals:
+
+1. Run locally: python3 sr_terminal.py
+2. Open: http://localhost:5000
+3. Add levels (e.g., $150.00 resistance)
+4. Bot will detect reversals near those levels
+5. Can lower threshold 75% → 60% if RSI extreme + near level
+
+(Only works in Replit dev mode - can also edit sr_levels.json directly)
+
+================================================================================
+MONITORING
+================================================================================
+
+Watch Live Logs:
+- Open Replit console
+- Logs print in real-time as bot scans
+
+Check Signals Sent:
+- cat signals_log.json (shows last 10 signals)
+
+Check Errors:
+- Look for red text in Replit console
+- Most common: expired credentials or API rate limit
+
+================================================================================
+NEXT STEPS (30 DAYS FROM NOW)
+================================================================================
+
+1. Let bot run for 30 days
+2. Collect signal data from signals_log.json
+3. Calculate win rate, best times, accuracy per index
+4. Build MT5 EA that auto-executes same signals
+5. Launch paid EA to customers
+
+================================================================================
+QUESTIONS?
+================================================================================
+
+Check REPLIT_SETUP.md for troubleshooting
+Check README.md for full documentation
+Check ARCHITECTURE.md to understand how it works
+
+================================================================================
+You're ready. Deploy now.
+================================================================================
